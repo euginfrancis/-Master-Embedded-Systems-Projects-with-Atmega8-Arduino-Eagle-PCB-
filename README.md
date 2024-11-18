@@ -9,13 +9,8 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
 - [Installing Arduino IDE and Setting Up ATmega328/UNO Board](#installing-arduino-ide-and-setting-up-atmega328uno-board)
 - [Setting Up USBASP Programmer and USB-to-Serial Converter](#setting-up-usbasp-programmer-and-usb-to-serial-converter)
-- [Working with Timers in Embedded Systems](#working-with-timers-in-embedded-systems)
-- [Interfacing with Sensors and ADC (Analog to Digital Conversion)](#interfacing-with-sensors-and-adc-analog-to-digital-conversion)
-- [Pulse Width Modulation (PWM) for Motor and LED Control](#pulse-width-modulation-pwm-for-motor-and-led-control)
-- [Interfacing LCD Displays for User Output](#interfacing-lcd-displays-for-user-output)
 - [Eagle PCB Design: From Schematic to Fabrication](#eagle-pcb-design-from-schematic-to-fabrication)
 - [DIY PCB Fabrication Process](#diy-pcb-fabrication-process)
-- [Project Folders](#project-folders)
 
 ## Overview
 
