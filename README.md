@@ -1,30 +1,30 @@
-# Master Embedded Systems: Projects with Atmega8, Arduino, and Eagle-PCB
+# Master Embedded Systems: Projects with Atmega328, Arduino, and Eagle-PCB
 
-Welcome to the **Embedded Systems Projects** repository! This repository contains a collection of projects using the **Atmega8** microcontroller, **Arduino**, and **Eagle PCB design**. These projects are designed for beginners who want to learn embedded systems concepts, build real-world applications, and fabricate their own PCBs.
+Welcome to the **Embedded Systems Projects** repository! This repository contains a collection of projects using the **Atmega328** microcontroller, **Arduino**, and **Eagle PCB design**. These projects are designed for beginners who want to learn embedded systems concepts, build real-world applications, and fabricate their own PCBs.
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Understanding Microcontrollers: Atmega8 Basics](#understanding-microcontrollers-atmega8-basics)
+- [Understanding Microcontrollers: Atmega328 Basics](#understanding-microcontrollers-atmega8-basics)
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
 - [Working with Timers in Embedded Systems](#working-with-timers-in-embedded-systems)
 - [Interfacing with Sensors and ADC (Analog to Digital Conversion)](#interfacing-with-sensors-and-adc-analog-to-digital-conversion)
 - [Pulse Width Modulation (PWM) for Motor and LED Control](#pulse-width-modulation-pwm-for-motor-and-led-control)
 - [Interfacing LCD Displays for User Output](#interfacing-lcd-displays-for-user-output)
-- [USBASP Programmer for Atmega8 Firmware Upload](#usbasp-programmer-for-atmega8-firmware-upload)
+- [USBASP Programmer for Atmega328 Firmware Upload](#usbasp-programmer-for-atmega8-firmware-upload)
 - [Eagle PCB Design: From Schematic to Fabrication](#eagle-pcb-design-from-schematic-to-fabrication)
 - [DIY PCB Fabrication Process](#diy-pcb-fabrication-process)
 - [Project Folders](#project-folders)
 
 ## Overview
 
-This repository provides practical examples of embedded systems projects using the **Atmega8** microcontroller and **Arduino** platform. You will also explore **Eagle PCB design** for creating custom PCBs. The goal is to build a solid foundation for working with embedded systems and PCB fabrication.
+This repository provides practical examples of embedded systems projects using the **Atmega328** microcontroller and **Arduino** platform. You will also explore **Eagle PCB design** for creating custom PCBs. The goal is to build a solid foundation for working with embedded systems and PCB fabrication.
 
 ## Understanding Microcontrollers: Atmega8 Basics
 
 A **microcontroller** is a compact integrated circuit that acts as the brain of an embedded system. It combines a processor (for executing instructions), memory (for storing programs and temporary data), and input/output pins (for connecting to external devices) all in one chip. Unlike general-purpose computers, microcontrollers are designed to perform specific tasks, such as controlling an appliance, blinking an LED, or reading data from a sensor. Their versatility and low cost make them a cornerstone of modern electronics, found in everything from toys to industrial machinery.
 
-The **Atmega8**, part of the AVR family, is a popular 8-bit microcontroller for beginners. Built on the efficient AVR architecture, it uses a Reduced Instruction Set Computer (RISC) design for faster performance. It features 8 KB of Flash memory for program storage, 1 KB of SRAM for temporary data, and 512 bytes of EEPROM for saving data even when power is off. With 23 input/output pins, built-in timers, a 10-bit Analog-to-Digital Converter (ADC), and communication protocols like UART, SPI, and I2C, the Atmega8 is ideal for learning how microcontrollers work. Its simplicity, combined with powerful features, makes it a go-to choice for building practical projects like motor control, sensor interfacing, and custom PCB designs.
+The **Atmega328**, part of the AVR family, is a popular 8-bit microcontroller for beginners. Built on the efficient AVR architecture, it uses a Reduced Instruction Set Computer (RISC) design for faster performance. It features 32 KB of Flash memory for program storage, 1 KB of SRAM for temporary data, and 512 bytes of EEPROM for saving data even when power is off. With 23 input/output pins, built-in timers, a 10-bit Analog-to-Digital Converter (ADC), and communication protocols like UART, SPI, and I2C, the Atmega328 is ideal for learning how microcontrollers work. Its simplicity, combined with powerful features, makes it a go-to choice for building practical projects like motor control, sensor interfacing, and custom PCB designs.
 
 ## Programming with Arduino IDE
 
