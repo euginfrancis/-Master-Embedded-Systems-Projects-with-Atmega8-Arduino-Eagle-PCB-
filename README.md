@@ -16,58 +16,121 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 - [DIY PCB Fabrication Process](#diy-pcb-fabrication-process)
 - [Project Folders](#project-folders)
 
----
-
 ## Overview
 
 This repository provides practical examples of embedded systems projects using the **Atmega8** microcontroller and **Arduino** platform. You will also explore **Eagle PCB design** for creating custom PCBs. The goal is to build a solid foundation for working with embedded systems and PCB fabrication.
 
----
+## Understanding Microcontrollers: Atmega8 Basics
 
-## Project Execution Flow & Concepts Covered
+A **microcontroller** is a compact integrated circuit that acts as the brain of an embedded system. It combines a processor (for executing instructions), memory (for storing programs and temporary data), and input/output pins (for connecting to external devices) all in one chip. Unlike general-purpose computers, microcontrollers are designed to perform specific tasks, such as controlling an appliance, blinking an LED, or reading data from a sensor. Their versatility and low cost make them a cornerstone of modern electronics, found in everything from toys to industrial machinery.
 
-The following concepts are covered in these projects:
+The **Atmega8**, part of the AVR family, is a popular 8-bit microcontroller for beginners. Built on the efficient AVR architecture, it uses a Reduced Instruction Set Computer (RISC) design for faster performance. It features 8 KB of Flash memory for program storage, 1 KB of SRAM for temporary data, and 512 bytes of EEPROM for saving data even when power is off. With 23 input/output pins, built-in timers, a 10-bit Analog-to-Digital Converter (ADC), and communication protocols like UART, SPI, and I2C, the Atmega8 is ideal for learning how microcontrollers work. Its simplicity, combined with powerful features, makes it a go-to choice for building practical projects like motor control, sensor interfacing, and custom PCB designs.
 
-1. **Understanding Microcontrollers: Atmega8 Basics**  
-   Learn the fundamentals of the **Atmega8** microcontroller, including its architecture, registers, and memory.
+## Programming with Arduino IDE
 
-2. **Programming with Arduino IDE**  
-   Learn how to program the Atmega8 using the **Arduino IDE** to create various embedded systems projects.
-
-3. **Working with Timers in Embedded Systems**  
-   Understand the use of timers for precise control in embedded systems applications.
-
-4. **Interfacing with Sensors and ADC (Analog to Digital Conversion)**  
-   Learn how to interface sensors and convert analog signals to digital using the ADC feature of Atmega8.
-
-5. **Pulse Width Modulation (PWM) for Motor and LED Control**  
-   Explore how to use PWM to control motors, LEDs, and other devices efficiently.
-
-6. **Interfacing LCD Displays for User Output**  
-   Learn how to display output data on an LCD screen for user interaction.
-
-7. **USBASP Programmer for Atmega8 Firmware Upload**  
-   Set up a **USBASP programmer** to upload firmware to the Atmega8 microcontroller.
-
-8. **Eagle PCB Design: From Schematic to Fabrication**  
-   Discover how to design circuits in **Eagle** and prepare them for PCB fabrication.
-
-9. **DIY PCB Fabrication Process**  
-   Learn about the process of fabricating your own PCBs at home, from etching to component soldering.
+Arduino provides several built-in functions to interact with hardware components like LEDs, sensors, and motors. Here’s an overview of the most commonly used functions, explained in a simple way.
 
 ---
 
-## Project Folders
+### 1. GPIO (General Purpose Input/Output)
 
-This repository contains the following folders:
+#### `pinMode()`
+Configures a GPIO pin as an **input** or **output**.  
+- **pin**: The pin number you want to set (e.g., 2, 13).  
+- **mode**: Use `INPUT`, `OUTPUT`, or `INPUT_PULLUP`.  
 
-- **Project 1: Atmega8 Blinking LED**  
-- **Project 2: Arduino PWM Control**  
-- **Project 3: Atmega8 Sensor Interface**  
-- **Project 4: Eagle PCB Design - Schematic and Layout**  
-- **Project 5: DIY PCB Fabrication**
+**Example**:  
+```cpp
+pinMode(13, OUTPUT); // Set pin 13 as output
+pinMode(2, INPUT);   // Set pin 2 as input
+```
+### `digitalWrite()`
+Sets a pin to either HIGH (on) or LOW (off).
+**Example**:  
+```cpp
+digitalWrite(13, HIGH); // Turn on LED connected to pin 13
+digitalWrite(13, LOW);  // Turn it off
+```
+### `digitalRead()`
+Reads the state of a digital input pin (HIGH or LOW).
 
----
+Syntax:
 
-Feel free to explore the projects and improve your understanding of embedded systems, microcontrollers, and PCB design!
+cpp
+Copy code
+int state = digitalRead(pin);
+Example:
+
+cpp
+Copy code
+int buttonState = digitalRead(2); // Read the state of the button on pin 2
+2. PWM (Pulse Width Modulation)
+analogWrite()
+Generates a PWM signal to control the brightness of LEDs or the speed of motors.
+
+value: Ranges from 0 (off) to 255 (full brightness or speed).
+Syntax:
+
+cpp
+Copy code
+analogWrite(pin, value);
+Example:
+
+cpp
+Copy code
+analogWrite(9, 128); // Set 50% brightness on pin 9
+3. Delays
+delay()
+Pauses the program for a specified time in milliseconds.
+
+Syntax:
+
+cpp
+Copy code
+delay(milliseconds);
+Example:
+
+cpp
+Copy code
+delay(1000); // Wait for 1 second
+4. Serial Communication
+Serial.begin()
+Initializes communication between the Arduino and a computer. The baud rate determines the speed of communication (e.g., 9600 bits per second).
+
+Syntax:
+
+cpp
+Copy code
+Serial.begin(baudRate);
+Example:
+
+cpp
+Copy code
+Serial.begin(9600); // Start communication at 9600 bps
+Serial.print() and Serial.println()
+Send data or messages to the computer via the Serial Monitor.
+
+Serial.print(): Prints data on the same line.
+Serial.println(): Prints data and moves to the next line.
+Example:
+
+cpp
+Copy code
+Serial.print("Temperature: ");
+Serial.println(25);
+Serial.read()
+Reads incoming data from the serial buffer (one byte at a time).
+
+Syntax:
+
+cpp
+Copy code
+char data = Serial.read();
+Example:
+
+cpp
+Copy code
+if (Serial.available() > 0) {
+    char receivedData = Serial.read(); // Read the first available byte
+}
 
