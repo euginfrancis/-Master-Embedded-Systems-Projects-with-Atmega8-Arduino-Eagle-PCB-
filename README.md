@@ -5,7 +5,6 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 ## Table of Contents
 
 - [Overview](#overview)
-- [Project Execution Flow & Concepts Covered](#project-execution-flow--concepts-covered)
 - [Understanding Microcontrollers: Atmega8 Basics](#understanding-microcontrollers-atmega8-basics)
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
 - [Working with Timers in Embedded Systems](#working-with-timers-in-embedded-systems)
