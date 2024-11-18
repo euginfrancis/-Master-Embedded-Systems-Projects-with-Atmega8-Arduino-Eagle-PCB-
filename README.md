@@ -122,9 +122,9 @@ if (Serial.available() > 0) {
 
 This guide provides a brief explanation on how to install the Arduino IDE and set up the **ATmega328** or **Arduino Uno** board.
 
-## 1. Install the Arduino IDE
+### 1. Install the Arduino IDE
 
-### a. Download and Install
+#### a. Download and Install
 1. Visit the official [Arduino website](https://www.arduino.cc/en/software).
 2. Download the appropriate version for your operating system (Windows, macOS, Linux).
 3. Follow the installation instructions:
@@ -132,36 +132,30 @@ This guide provides a brief explanation on how to install the Arduino IDE and se
    - For macOS: Open the `.dmg` file and drag the Arduino IDE to the Applications folder.
    - For Linux: Use the package manager or install from the tarball.
 
-### b. Launch the IDE
+#### b. Launch the IDE
 After installation, launch the **Arduino IDE**. You should see the Arduino IDE window ready for use.
 
----
+### 2. Set Up the ATmega328/UNO Board in Arduino IDE
 
-## 2. Set Up the ATmega328/UNO Board in Arduino IDE
-
-### a. Open the Arduino IDE
+#### a. Open the Arduino IDE
 1. Open the **Arduino IDE** after installation.
 
-### b. Select the Board (ATmega328/UNO)
+#### b. Select the Board (ATmega328/UNO)
 1. Go to **Tools** → **Board** → **Arduino Uno** (which uses the ATmega328P microcontroller).
 2. Select **Arduino Uno** from the list of available boards.
 
-### c. Select the Port
+#### c. Select the Port
 1. Connect your **Arduino Uno** to your computer using a USB cable.
 2. Go to **Tools** → **Port** and select the correct port where your Arduino Uno is connected. On Windows, this is usually something like `COM3` or `COM4`. On macOS/Linux, it will show up as `/dev/cu.usbmodemXXXX`.
 
----
-
-## 3. Install the ATmega328 Drivers (if needed)
+### 3. Install the ATmega328 Drivers (if needed)
 
 If your Arduino Uno is not recognized or you're using a clone board, you may need to install drivers.
 
 - **For Windows**: The drivers are automatically installed when you install the Arduino IDE. However, for clone boards, you may need to manually install the **CH340/CH341** driver from the manufacturer's website.
 - **For macOS/Linux**: These platforms usually don’t require additional drivers. If needed, you can find open-source drivers or use tools like **brew** on macOS.
 
----
-
-## 4. Test the Setup
+### 4. Test the Setup
 
 To confirm everything is set up correctly:
 
@@ -169,8 +163,6 @@ To confirm everything is set up correctly:
 2. Go to **File** → **Examples** → **01.Basics** → **Blink**.
 3. Click the **Upload** button (right arrow icon).
 4. The LED on pin 13 of the Arduino Uno should start blinking if everything is configured properly.
-
----
 
 You have now successfully set up the Arduino IDE for programming the **ATmega328/Uno** board.
 
