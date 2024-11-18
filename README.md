@@ -42,6 +42,7 @@ pinMode(2, INPUT);   // Set pin 2 as input
 ```
 ### `digitalWrite()`
 Sets a pin to either HIGH (on) or LOW (off).
+
 **Example**:  
 ```cpp
 digitalWrite(13, HIGH); // Turn on LED connected to pin 13
@@ -49,6 +50,7 @@ digitalWrite(13, LOW);  // Turn it off
 ```
 ### `digitalRead()`
 Reads the state of a digital input pin (HIGH or LOW).
+
 **Example**:  
 ```cpp
 int buttonState = digitalRead(2); // Read the state of the button on pin 2
@@ -57,30 +59,36 @@ int buttonState = digitalRead(2); // Read the state of the button on pin 2
 Generates a PWM signal to control the brightness of LEDs or the speed of motors.
 
 value: Ranges from 0 (off) to 255 (full brightness or speed).
+
 **Syntax**:
 ```cpp
 analogWrite(pin, value);
 ```
+
 **Example**:
 ```cpp
 analogWrite(9, 128); // Set 50% brightness on pin 9
 ```
 ### `delay()`
 Pauses the program for a specified time in milliseconds.
+
 **Syntax**:
 ```cpp
 delay(milliseconds);
 ```
+
 **Example**:
 ```cpp
 delay(1000); // Wait for 1 second
 ```
 ### `Serial.begin`()
 Initializes communication between the Arduino and a computer. The baud rate determines the speed of communication (e.g., 9600 bits per second).
+
 **Syntax**:
 ```cpp
 Serial.begin(baudRate);
 ```
+
 **Example**:
 ```cpp
 Serial.begin(9600); // Start communication at 9600 bps
@@ -89,6 +97,7 @@ Serial.begin(9600); // Start communication at 9600 bps
 Send data or messages to the computer via the Serial Monitor.
 Serial.print(): Prints data on the same line.
 Serial.println(): Prints data and moves to the next line.
+
 **Example**:
 ```cpp
 Serial.print("Temperature: ");
@@ -96,7 +105,8 @@ Serial.println(25);
 ```
 ### `Serial.read()`
 Reads incoming data from the serial buffer (one byte at a time).
-**Syntax**
+
+**Syntax**:
 ```cpp
 char data = Serial.read();
 ```
