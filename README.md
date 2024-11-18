@@ -7,7 +7,7 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 - [Overview](#overview)
 - [Understanding Microcontrollers: Atmega328 Basics](#understanding-microcontrollers-atmega8-basics)
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
-- [Installing Arduino IDE and Setting Up ATmega328/UNO Board](#installing-arduino-ide-and-setting-up-atmega328/UNO-board)
+- [Installing Arduino IDE and Setting Up ATmega328/UNO Board](#installing-arduino-ide-and-setting-up-atmega328uno-board)
 - [Working with Timers in Embedded Systems](#working-with-timers-in-embedded-systems)
 - [Interfacing with Sensors and ADC (Analog to Digital Conversion)](#interfacing-with-sensors-and-adc-analog-to-digital-conversion)
 - [Pulse Width Modulation (PWM) for Motor and LED Control](#pulse-width-modulation-pwm-for-motor-and-led-control)
