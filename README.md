@@ -30,11 +30,7 @@ The **Atmega8**, part of the AVR family, is a popular 8-bit microcontroller for 
 
 Arduino provides several built-in functions to interact with hardware components like LEDs, sensors, and motors. Here’s an overview of the most commonly used functions, explained in a simple way.
 
----
-
-### 1. GPIO (General Purpose Input/Output)
-
-#### `pinMode()`
+### `pinMode()`
 Configures a GPIO pin as an **input** or **output**.  
 - **pin**: The pin number you want to set (e.g., 2, 13).  
 - **mode**: Use `INPUT`, `OUTPUT`, or `INPUT_PULLUP`.  
@@ -53,84 +49,61 @@ digitalWrite(13, LOW);  // Turn it off
 ```
 ### `digitalRead()`
 Reads the state of a digital input pin (HIGH or LOW).
-
-Syntax:
-
-cpp
-Copy code
-int state = digitalRead(pin);
-Example:
-
-cpp
-Copy code
+**Example**:  
+```cpp
 int buttonState = digitalRead(2); // Read the state of the button on pin 2
-2. PWM (Pulse Width Modulation)
-analogWrite()
+```
+### `analogWrite()`
 Generates a PWM signal to control the brightness of LEDs or the speed of motors.
 
 value: Ranges from 0 (off) to 255 (full brightness or speed).
-Syntax:
-
-cpp
-Copy code
+**Syntax**:
+```cpp
 analogWrite(pin, value);
-Example:
-
-cpp
-Copy code
+```
+**Example**:
+```cpp
 analogWrite(9, 128); // Set 50% brightness on pin 9
-3. Delays
-delay()
+```
+### `delay()`
 Pauses the program for a specified time in milliseconds.
-
-Syntax:
-
-cpp
-Copy code
+**Syntax**:
+```cpp
 delay(milliseconds);
-Example:
-
-cpp
-Copy code
+```
+**Example**:
+```cpp
 delay(1000); // Wait for 1 second
-4. Serial Communication
-Serial.begin()
+```
+### `Serial.begin`()
 Initializes communication between the Arduino and a computer. The baud rate determines the speed of communication (e.g., 9600 bits per second).
-
-Syntax:
-
-cpp
-Copy code
+**Syntax**:
+```cpp
 Serial.begin(baudRate);
-Example:
-
-cpp
-Copy code
+```
+**Example**:
+```cpp
 Serial.begin(9600); // Start communication at 9600 bps
-Serial.print() and Serial.println()
+```
+### `Serial.print() and Serial.println()`
 Send data or messages to the computer via the Serial Monitor.
-
 Serial.print(): Prints data on the same line.
 Serial.println(): Prints data and moves to the next line.
-Example:
-
-cpp
-Copy code
+**Example**:
+```cpp
 Serial.print("Temperature: ");
 Serial.println(25);
-Serial.read()
+```
+### `Serial.read()`
 Reads incoming data from the serial buffer (one byte at a time).
-
-Syntax:
-
-cpp
-Copy code
+**Syntax**
+```cpp
 char data = Serial.read();
-Example:
-
-cpp
-Copy code
+```
+**Example**:
+```cpp
 if (Serial.available() > 0) {
     char receivedData = Serial.read(); // Read the first available byte
 }
+```
 
