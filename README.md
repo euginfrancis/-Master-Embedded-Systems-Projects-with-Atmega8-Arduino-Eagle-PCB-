@@ -228,5 +228,41 @@ To read data from the ATmega328 on your custom PCB, you can use a **USB-to-Seria
 - **USBASP Not Recognized**: If your **USBASP** is not recognized, ensure the drivers are properly installed. On Windows, check for any driver conflicts in the **Device Manager**.
 - **No Output on Serial Monitor**: If you're not seeing data in the **Serial Monitor**, check the **TX/RX** connections between the **USB-to-Serial converter** and the **ATmega328**. Also, ensure the baud rate in the `Serial.begin()` matches the baud rate set in the **Serial Monitor**.
 
+## Eagle PCB Design: From Schematic to Fabrication
+
+This guide explains how to use **Eagle PCB Design Software** to create a schematic, design a PCB, and prepare it for fabrication.
+
+### 1. Creating the Schematic in Eagle
+
+1. **Open Eagle Software** and create a new project.
+2. In the **Control Panel**, right-click on the project folder and select **New** → **Schematic**.
+3. Add components by clicking on the **Add Part** tool, search for components (e.g., resistors, capacitors, ICs) from the libraries.
+4. Use the **Wire** tool to connect the components as per your circuit design.
+5. Label your nets using the **Label** tool to make the connections clear.
+6. Once the schematic is complete, run the **ERC (Electrical Rule Check)** to ensure there are no errors in the design.
+
+### 2. Designing the PCB Layout
+
+1. After completing the schematic, switch to the **PCB Layout** by clicking on the **Switch to Board** button.
+2. Eagle will automatically create a board outline, but you can customize it according to your needs.
+3. Arrange the components on the board, making sure to keep routing clean and components placed logically.
+4. Use the **Route** tool to draw the PCB traces, connecting the components' pins.
+5. Add a **Ground Plane** using the **Polygon** tool to reduce noise and improve stability.
+
+### 3. Checking and Finalizing the Design
+
+1. Run the **DRC (Design Rule Check)** to verify that the traces and components meet the fabrication requirements (e.g., trace width, spacing).
+2. Use the **Electrical Rule Check (ERC)** to ensure there are no electrical issues.
+3. Once everything looks good, generate the **Gerber Files** required for PCB fabrication.
+
+### 4. Fabricating the PCB
+
+1. Export the Gerber files by going to **File** → **CAM Processor**, then selecting the required file outputs (e.g., **Top Layer**, **Bottom Layer**, **Solder Mask**, **Drill Files**).
+2. Send the Gerber files to a PCB fabrication service. There are several online services available for custom PCB manufacturing.
+3. After the PCB is fabricated, you can solder the components and test the board for functionality.
+
+
+
+
 
 
