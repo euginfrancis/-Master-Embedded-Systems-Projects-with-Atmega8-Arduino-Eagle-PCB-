@@ -8,11 +8,11 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 - [Understanding Microcontrollers: Atmega328 Basics](#understanding-microcontrollers-atmega8-basics)
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
 - [Installing Arduino IDE and Setting Up ATmega328/UNO Board](#installing-arduino-ide-and-setting-up-atmega328uno-board)
+- [Setting Up USBASP Programmer and USB-to-Serial Converter](#setting-up-usbasp-programmer-and-usb-to-serial-converter)
 - [Working with Timers in Embedded Systems](#working-with-timers-in-embedded-systems)
 - [Interfacing with Sensors and ADC (Analog to Digital Conversion)](#interfacing-with-sensors-and-adc-analog-to-digital-conversion)
 - [Pulse Width Modulation (PWM) for Motor and LED Control](#pulse-width-modulation-pwm-for-motor-and-led-control)
 - [Interfacing LCD Displays for User Output](#interfacing-lcd-displays-for-user-output)
-- [USBASP Programmer for Atmega328 Firmware Upload](#usbasp-programmer-for-atmega8-firmware-upload)
 - [Eagle PCB Design: From Schematic to Fabrication](#eagle-pcb-design-from-schematic-to-fabrication)
 - [DIY PCB Fabrication Process](#diy-pcb-fabrication-process)
 - [Project Folders](#project-folders)
@@ -165,5 +165,73 @@ To confirm everything is set up correctly:
 4. The LED on pin 13 of the Arduino Uno should start blinking if everything is configured properly.
 
 You have now successfully set up the Arduino IDE for programming the **ATmega328/Uno** board.
+
+## Setting Up USBASP Programmer and USB-to-Serial Converter
+
+This guide explains how to set up the **USBASP programmer** for programming an ATmega328 on a custom PCB and the **USB-to-serial converter** to read data from the board using the **Arduino IDE**.
+
+### 1. Setting Up USBASP Programmer
+
+#### a. Connect the USBASP Programmer to the ATmega328
+1. **USBASP Pin Connections**:
+   - **MISO** (Master In Slave Out) → **MISO** pin of ATmega328
+   - **MOSI** (Master Out Slave In) → **MOSI** pin of ATmega328
+   - **SCK** (Serial Clock) → **SCK** pin of ATmega328
+   - **RESET** → **RESET** pin of ATmega328
+   - **VCC** → **VCC** pin of ATmega328 (5V)
+   - **GND** → **GND** pin of ATmega328
+
+2. Ensure that the **USBASP** programmer is securely connected to the **ISP header** (In-System Programming) of your custom PCB.
+
+#### b. Install USBASP Drivers
+If your computer does not automatically recognize the **USBASP programmer**, you may need to install drivers:
+
+- **For Windows**: Download and install the **USBASP drivers** from [fischl.de](http://www.fischl.de/usbasp/).
+- **For macOS/Linux**: These platforms typically don't require drivers. If needed, you can install **libusb** or use open-source drivers.
+
+#### c. Select USBASP Programmer in Arduino IDE
+1. Open **Arduino IDE**.
+2. Go to **Tools** → **Programmer** → Select **USBasp**.
+
+### 2. Setting Up USB-to-Serial Converter
+
+#### a. Connect the USB-to-Serial Converter to the ATmega328
+To read data from the ATmega328 on your custom PCB, you can use a **USB-to-Serial converter** (e.g., FTDI or CP2102). Here’s how to connect the pins:
+
+1. **USB-to-Serial Pin Connections**:
+   - **TX (Transmit)** → **RX** pin of ATmega328
+   - **RX (Receive)** → **TX** pin of ATmega328
+   - **VCC** → **VCC** pin of ATmega328 (5V)
+   - **GND** → **GND** pin of ATmega328
+   
+2. Make sure the **USB-to-Serial converter** is connected to your PC via USB, and the other side is connected to the ATmega328.
+
+#### b. Select the Serial Port in Arduino IDE
+1. Go to **Tools** → **Port** and select the correct COM port for your USB-to-Serial device.
+   - On Windows, this could be something like `COM3` or `COM4`.
+   - On macOS/Linux, it will be `/dev/cu.usbserial-xxxx`.
+
+#### c. Upload Code and Read Data via Serial Monitor
+1. Write your program in **Arduino IDE** and upload it to the ATmega328.
+2. Open **Tools** → **Serial Monitor** in Arduino IDE to view data transmitted via **Serial Communication**.
+3. Use `Serial.print()` or `Serial.println()` in your program to send data to the **Serial Monitor**.
+
+### 3. Uploading the Program to the ATmega328
+
+### a. Using USBASP Programmer
+1. Connect the **USBASP** programmer to your custom PCB.
+2. Select **Tools** → **Board** → **Arduino Uno** (for ATmega328).
+3. Select **Tools** → **Programmer** → **USBasp**.
+4. Click the **Upload Using Programmer** button (Shift + Upload button) to upload the code to the ATmega328.
+
+#### b. Reading Data via Serial Monitor
+1. Once the code is uploaded, you can monitor the output of your ATmega328 using **Serial Monitor** (set baud rate as per your code, e.g., 9600).
+2. Use `Serial.print()` in your program to send real-time data to the Serial Monitor for debugging or display purposes.
+
+### 4. Troubleshooting
+
+- **USBASP Not Recognized**: If your **USBASP** is not recognized, ensure the drivers are properly installed. On Windows, check for any driver conflicts in the **Device Manager**.
+- **No Output on Serial Monitor**: If you're not seeing data in the **Serial Monitor**, check the **TX/RX** connections between the **USB-to-Serial converter** and the **ATmega328**. Also, ensure the baud rate in the `Serial.begin()` matches the baud rate set in the **Serial Monitor**.
+
 
 
