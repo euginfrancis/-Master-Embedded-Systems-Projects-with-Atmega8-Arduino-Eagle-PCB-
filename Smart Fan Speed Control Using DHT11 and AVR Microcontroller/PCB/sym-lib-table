@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "TF_humidity-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/TF_humidity-eagle-import.kicad_sym")(options "")(descr ""))
+)
