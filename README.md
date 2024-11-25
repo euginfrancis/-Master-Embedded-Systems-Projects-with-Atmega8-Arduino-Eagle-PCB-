@@ -6,6 +6,7 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 
 - [Overview](#overview)
 - [Understanding Microcontrollers: Atmega328 Basics](#understanding-microcontrollers-atmega8-basics)
+- [Compile a C file using WinAVR](#compile-a-c-file-using-winavr)
 - [Programming with Arduino IDE](#programming-with-arduino-ide)
 - [Installing Arduino IDE and Setting Up ATmega328/UNO Board](#installing-arduino-ide-and-setting-up-atmega328uno-board)
 - [Setting Up USBASP Programmer and USB-to-Serial Converter](#setting-up-usbasp-programmer-and-usb-to-serial-converter)
@@ -21,6 +22,84 @@ This repository provides practical examples of embedded systems projects using t
 A **microcontroller** is a compact integrated circuit that acts as the brain of an embedded system. It combines a processor (for executing instructions), memory (for storing programs and temporary data), and input/output pins (for connecting to external devices) all in one chip. Unlike general-purpose computers, microcontrollers are designed to perform specific tasks, such as controlling an appliance, blinking an LED, or reading data from a sensor. Their versatility and low cost make them a cornerstone of modern electronics, found in everything from toys to industrial machinery.
 
 The **Atmega328**, part of the AVR family, is a popular 8-bit microcontroller for beginners. Built on the efficient AVR architecture, it uses a Reduced Instruction Set Computer (RISC) design for faster performance. It features 32 KB of Flash memory for program storage, 1 KB of SRAM for temporary data, and 512 bytes of EEPROM for saving data even when power is off. With 23 input/output pins, built-in timers, a 10-bit Analog-to-Digital Converter (ADC), and communication protocols like UART, SPI, and I2C, the Atmega328 is ideal for learning how microcontrollers work. Its simplicity, combined with powerful features, makes it a go-to choice for building practical projects like motor control, sensor interfacing, and custom PCB designs.
+
+## Compile a C file using WinAVR
+
+To compile a C file using **WinAVR**, follow these steps:
+
+### Step 1: Install WinAVR
+
+Download and install **WinAVR** from its [official site](http://winavr.sourceforge.net/) or a trusted source.  
+This package includes:
+- **avr-gcc compiler**
+- **avrdude**
+- Supporting tools
+
+### Step 2: Write the C Program
+
+Create your C program and save it with a `.c` extension. For example, `main.c`.
+
+### Step 3: Create a Makefile
+
+Create a file named `Makefile` in the same directory as your C program.
+
+Here is a simple example of a Makefile:
+
+```makefile
+MCU = atmega8       # Target microcontroller (change as needed)
+F_CPU = 16000000UL  # Clock frequency
+CC = avr-gcc
+CFLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -Wall -Os
+TARGET = main
+
+all: $(TARGET).hex
+
+$(TARGET).hex: $(TARGET).elf
+	avr-objcopy -O ihex -R .eeprom $(TARGET).elf $(TARGET).hex
+
+$(TARGET).elf: $(TARGET).c
+	$(CC) $(CFLAGS) -o $(TARGET).elf $(TARGET).c
+
+clean:
+	rm -f *.elf *.hex
+```
+### Makefile Explanation:
+
+- `MCU`: Specify your microcontroller model (e.g., atmega8, atmega328p).
+- `F_CPU`: Specify the frequency of your microcontroller in Hz.
+- Replace `main.c` with the name of your C file if different.
+
+### Step 4: Compile the Program
+
+1. Open a command prompt.
+2. Navigate to the folder containing your `main.c` and `Makefile`.
+3. Run the `make` command:
+
+```bash
+make
+```
+This will compile your code and generate a .hex file ready for uploading to the microcontroller.
+
+### Step 5: Upload to the Microcontroller
+
+Use avrdude to upload the .hex file to your microcontroller. For example:
+
+```bash
+avrdude -c usbasp -p atmega8 -U flash:w:main.hex
+```
+Replace usbasp with your programmer.
+Replace atmega8 with your microcontroller model.
+
+### Step 6: Verify the Program
+
+Ensure your microcontroller runs the compiled program as expected.
+
+### Troubleshooting
+
+If you encounter issues:
+
+    Verify the MCU and F_CPU values match your microcontroller.
+    Ensure all paths are set correctly in the environment variables if make or avr-gcc is not recognized.
 
 ## Programming with Arduino IDE
 
