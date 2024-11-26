@@ -27,6 +27,22 @@ The DHT11 sensor uses a **single-wire communication protocol** to transmit data.
 
 To communicate with the DHT11 sensor, the microcontroller sends a **start signal** to the sensor, which responds with the requested data.
 
+### DHT11 Communication Sequence Diagram
+
+```mermaid
+%% Example of a timing diagram for a start signal
+sequenceDiagram
+    participant MCU
+    participant Sensor
+    
+    MCU->>Sensor: Send Start Signal (18ms Low)
+    Sensor->>MCU: Respond (80µs Low, 80µs High)
+    MCU->>Sensor: Wait for Data
+    Sensor->>MCU: Send Data (40 bits)
+    MCU->>MCU: Validate Data Integrity
+    MCU->>Sensor: Return Success/Failure
+
+```
 ## Project Overview
 
 This project reads the room temperature from the DHT11 sensor, then adjusts the fan speed accordingly using **PWM**. The fan speed increases with higher temperatures, providing an effective and efficient cooling system. The control is implemented using an **AVR microcontroller** (e.g., ATmega328P) which reads the DHT11 sensor and adjusts the PWM signal for fan control.
