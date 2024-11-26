@@ -12,6 +12,7 @@ Welcome to the **Embedded Systems Projects** repository! This repository contain
 - [Setting Up USBASP Programmer and USB-to-Serial Converter](#setting-up-usbasp-programmer-and-usb-to-serial-converter)
 - [Eagle PCB Design: From Schematic to Fabrication](#eagle-pcb-design-from-schematic-to-fabrication)
 - [DIY PCB Fabrication Process](#diy-pcb-fabrication-process)
+- [HD44780 LCD Communication Protocol](#hd44780-lcd-communication-protocol)
 
 ## Overview
 
@@ -402,5 +403,81 @@ This guide will walk you through the steps for fabricating a **Printed Circuit B
 ### Conclusion
 
 Congratulations! You've just fabricated your own **PCB** at home. Now, you can proceed with **soldering the components** onto the PCB, and your custom circuit is ready to be used. While this process can take some time, it's a great and cost-effective way to create your own PCBs without needing a professional service.
+
+## HD44780 LCD Communication Protocol
+
+
+### Initialization Sequence (Setting up the LCD)
+
+```mermaid
+sequenceDiagram
+    participant MCU
+    participant LCD
+
+    MCU->>LCD: Send Function Set (e.g., 0x38)
+    LCD->>MCU: Acknowledge
+
+    MCU->>LCD: Send Display ON/OFF (e.g., 0x0C)
+    LCD->>MCU: Acknowledge
+
+    MCU->>LCD: Send Clear Display Command (e.g., 0x01)
+    LCD->>MCU: Acknowledge
+
+    MCU->>LCD: Send Entry Mode Set (e.g., 0x06)
+    LCD->>MCU: Acknowledge
+
+    MCU->>LCD: Send Cursor Home Command (e.g., 0x02)
+    LCD->>MCU: Acknowledge
+
+    MCU->>MCU: LCD Initialized
+
+```
+### Write Command Sequence (Sending Command to LCD)
+
+```mermaid
+sequenceDiagram
+    participant MCU
+    participant LCD
+
+    MCU->>LCD: Send Command (e.g., 0x80 for setting cursor)
+    LCD->>MCU: Acknowledge
+    MCU->>LCD: Send Command Data (e.g., character or special instruction)
+    LCD->>MCU: Acknowledge
+    MCU->>MCU: Command Executed (cursor moved or action performed)
+```
+
+### Read Command Sequence (Reading Status or Data from LCD)
+
+```mermaid
+sequenceDiagram
+    participant MCU
+    participant LCD
+
+    MCU->>LCD: Send Read Command (e.g., 0x80 for status)
+    LCD->>MCU: Provide Busy Flag (if LCD is busy)
+    
+    MCU->>LCD: Send Data Read Command (e.g., 0x00 for data register)
+    LCD->>MCU: Return Data (e.g., character from display)
+    MCU->>MCU: Read Data Successfully
+```
+
+### Write Data String Sequence (Sending a Data String to LCD for Display)
+
+```mermaid
+sequenceDiagram
+    participant MCU
+    participant LCD
+
+    MCU->>LCD: Send Data (e.g., First Character)
+    LCD->>MCU: Acknowledge
+    MCU->>LCD: Send Next Data Character
+    LCD->>MCU: Acknowledge
+    loop Write Entire String
+        MCU->>LCD: Send Character
+        LCD->>MCU: Acknowledge
+    end
+    MCU->>MCU: Data String Displayed on LCD
+```
+
 
 
