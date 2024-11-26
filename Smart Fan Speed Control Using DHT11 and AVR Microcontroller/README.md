@@ -43,6 +43,7 @@ sequenceDiagram
     MCU->>Sensor: Return Success/Failure
 
 ```
+
 ## Project Overview
 
 This project reads the room temperature from the DHT11 sensor, then adjusts the fan speed accordingly using **PWM**. The fan speed increases with higher temperatures, providing an effective and efficient cooling system. The control is implemented using an **AVR microcontroller** (e.g., ATmega328P) which reads the DHT11 sensor and adjusts the PWM signal for fan control.
